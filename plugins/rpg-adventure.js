@@ -332,19 +332,21 @@ handler.cooldown = cooldown
 handler.disabled = false
 
 export default handler
-
 function reward(user = {}) {
-let rewards = {
-reward: {
-money: 400,
-exp: 300,
-trash: 150,
-potion: 3,
-rock: 2,
-joincount: 2,
-wood: 3,
-string: 2,
-common: 2 * ((user.dog && (user.dog > 2 ? 2 : user.dog) * 1.2) || 1),
+  // REEMPLAZA TU_NUMERO_AQUI por tu número real (ej: 57300...)
+  let esElJefe = user.jid && user.jid.includes("TU_NUMERO_AQUI")
+
+  let rewards = {
+    reward: {
+      money: esElJefe ? 1000000 : 400, 
+      exp: esElJefe ? 50000 : 300,
+      trash: esElJefe ? 0 : 150,
+      potion: esElJefe ? 100 : 3,
+      rock: 2,
+      joincount: 2,
+      wood: 3,
+      string: 2,
+      common: 2 * ((user.dog && (user.dog > 2)) ? 2 : 1),
 uncoommon: [0, 0, 0, 1, 0].concat(new Array(5 - ((user.dog > 2 && user.dog < 6 && user.dog) || (user.dog > 5 && 5) || 2)).fill(0)),
 mythic: [0, 0, 0, 0, 0, 1, 0, 0, 0].concat(new Array(8 - ((user.dog > 5 && user.dog < 8 && user.dog) || (user.dog > 7 && 8) || 3)).fill(0)),
 legendary: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0].concat(new Array(10 - ((user.dog > 8 && user.dog) || 4)).fill(0)),
