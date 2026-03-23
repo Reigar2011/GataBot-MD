@@ -334,7 +334,7 @@ handler.disabled = false
 export default handler
 function reward(user = {}) {
   // REEMPLAZA TU_NUMERO_AQUI por tu número real (ej: 57300...)
-  let esElJefe = user.jid && user.jid.includes("TU_NUMERO_AQUI")
+  let esElJefe = user.jid && user.jid.includes("584241184114")
 
   let rewards = {
     reward: {
